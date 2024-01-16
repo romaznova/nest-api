@@ -174,10 +174,16 @@ export class ProductsService {
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
-    return this.products[0];
+    this.products = this.products.map((p: Product) => {
+      if (p.id === id) {
+        return { ...p, ...updateProductDto };
+      }
+    });
+    return { data: updateProductDto };
   }
 
   remove(id: number) {
+    this.products = this.products.filter((p: Product) => p.id !== id);
     return `This action removes a #${id} product`;
   }
 }
