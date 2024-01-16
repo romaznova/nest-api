@@ -1,7 +1,7 @@
 import Stripe from 'stripe';
 import { StripeOptions } from './../interfaces';
 
-const packageJson = require('./../../package.json');
+const packageJson = require('./../../../package.json');
 
 export function getStripeClient({
   apiKey,
